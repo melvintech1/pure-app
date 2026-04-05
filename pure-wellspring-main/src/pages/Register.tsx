@@ -12,11 +12,10 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Tambahan: state untuk loading
+  const [isLoading, setIsLoading] = useState(false); 
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  // Tambahkan 'async' di sini
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -26,12 +25,11 @@ export default function Register() {
       return;
     }
 
-    setIsLoading(true); // Tombol loading nyala
+    setIsLoading(true); 
     
-    // Tambahkan 'await' di sini agar dia menunggu jawaban server
     const result = await register(name, email, password);
     
-    setIsLoading(false); // Tombol loading mati
+    setIsLoading(false);
 
     if (result.success) {
       navigate("/dashboard");

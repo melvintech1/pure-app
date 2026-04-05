@@ -11,20 +11,18 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Tambahan: state untuk loading
+  const [isLoading, setIsLoading] = useState(false); 
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  // Tambahkan 'async' di sini
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setIsLoading(true); // Menyalakan efek loading
+    setIsLoading(true); 
 
-    // Tambahkan 'await' di sini agar menunggu balasan dari server
     const result = await login(email, password);
     
-    setIsLoading(false); // Mematikan efek loading
+    setIsLoading(false); 
 
     if (result.success) {
       navigate("/dashboard");
@@ -57,7 +55,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                disabled={isLoading} // Nonaktifkan saat loading
+                disabled={isLoading} 
               />
             </div>
             <div className="space-y-1.5">
@@ -69,7 +67,7 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                disabled={isLoading} // Nonaktifkan saat loading
+                disabled={isLoading} 
               />
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>

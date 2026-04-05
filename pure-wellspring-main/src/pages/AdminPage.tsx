@@ -95,7 +95,7 @@ export default function AdminPage() {
       if (response.ok && data.success) {
         toast.success(editId ? "Artikel diperbarui" : "Artikel ditambahkan");
         setDialogOpen(false);
-        setRefresh((p) => p + 1); // Memancing useEffect untuk mengambil data terbaru
+        setRefresh((p) => p + 1); 
       } else {
         toast.error(data.message || "Gagal menyimpan artikel");
       }

@@ -1,5 +1,3 @@
-// localStorage helpers for PURE app data
-
 export interface BMIRecord {
   id: string;
   userId: string;

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-// Kita hapus semua fungsi storage lokal karena sekarang kita pakai Database sungguhan!
 import { getBMICategory } from "@/lib/storage";
 import { AppLayout } from "@/components/AppLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

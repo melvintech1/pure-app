@@ -17,13 +17,11 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-// Ini adalah alamat backend kita!
 const API_URL = "http://localhost:5000/api/auth";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
-  // Cek apakah user sudah login sebelumnya saat web pertama kali dibuka
   useEffect(() => {
     const sessionUser = localStorage.getItem("pure_session_user");
     if (sessionUser) {
@@ -50,7 +48,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return { success: false, error: data.message || "Gagal login" };
       }
 
-      // Jika sukses, simpan Token keamanan dan Data User
       localStorage.setItem("pure_token", data.token);
       localStorage.setItem("pure_session_user", JSON.stringify(data.user));
       setUser(data.user);
@@ -63,7 +60,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const register = async (name: string, email: string, password: string) => {
     try {
-      // Mengirim request ke Backend
       const response = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -75,7 +71,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return { success: false, error: data.message || "Gagal mendaftar" };
       }
 
-      // Langsung otomatis login setelah registrasi berhasil
       return await login(email, password);
     } catch (error) {
       return { success: false, error: "Tidak dapat terhubung ke server backend" };
