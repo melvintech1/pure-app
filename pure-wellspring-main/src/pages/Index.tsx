@@ -18,69 +18,84 @@ const Index = () => {
         </div>
       </nav>
 
-      <section className="px-8 py-20 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Mulai Hidup Lebih <span className="text-emerald-600">Sehat</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
-            PURE adalah aplikasi cerdas yang membantu kamu melacak waktu layar, melakukan detoksifikasi digital, dan mengembalikan keseimbangan kesehatan fisik serta mentalmu secara terstruktur.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/register" className="flex items-center justify-center gap-2 px-8 py-4 bg-[#0a1715] text-white rounded-xl text-lg font-semibold hover:bg-gray-800 transition">
-              Mulai Perjalanan Detoks <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="flex-1 relative w-full max-w-md lg:max-w-none mx-auto">
-          <div className="bg-emerald-50 rounded-3xl p-8 border border-emerald-100 shadow-2xl rotate-2 hover:rotate-0 transition duration-500">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-xl shadow-sm border border-emerald-100">
-                <p className="text-xs text-gray-400">BMI Kamu</p>
-                <p className="text-2xl font-bold text-emerald-600">19.5</p>
-              </div>
-              <div className="bg-white p-4 rounded-xl shadow-sm border border-emerald-100">
-                <p className="text-xs text-gray-400">Air Minum</p>
-                <p className="text-2xl font-bold text-blue-500">2L</p>
-              </div>
+      <section className="relative w-full overflow-hidden">
+        
+        <video
+          src="/hero-video.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        />
+
+        <div className="absolute top-0 left-0 w-full h-full bg-[#0a1715]/70 z-10"></div>
+
+        <div className="relative z-20 px-8 py-24 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+          
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
+              Mulai Hidup Lebih <span className="text-emerald-400">Sehat</span>
+            </h1>
+            <p className="text-xl text-gray-200 mb-8 max-w-lg mx-auto lg:mx-0">
+              PURE adalah aplikasi cerdas yang membantu kamu melacak waktu layar, melakukan detoksifikasi digital, dan mengembalikan keseimbangan kesehatan fisik serta mentalmu secara terstruktur.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link to="/register" className="flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-white rounded-xl text-lg font-semibold hover:bg-emerald-600 transition shadow-lg shadow-emerald-900/50">
+                Mulai Perjalanan Detoks <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
-            <div className="mt-4 bg-white p-6 rounded-xl shadow-sm border border-emerald-100">
-               <div className="h-24 w-full bg-emerald-50 rounded-lg flex items-end justify-between p-2 gap-1">
-                 {[40, 70, 45, 90, 65, 80].map((h, i) => (
-                   <div key={i} className="bg-emerald-400 w-full rounded-t-sm" style={{ height: `${h}%` }}></div>
-                 ))}
-               </div>
-               <p className="text-xs text-center mt-2 text-gray-400">Statistik Mingguan</p>
+          </div>
+          <div className="flex-1 relative w-full max-w-md lg:max-w-none mx-auto">
+            <div className="bg-emerald-50/95 backdrop-blur-sm rounded-3xl p-8 border border-emerald-100 shadow-2xl rotate-2 hover:rotate-0 transition duration-500">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white p-4 rounded-xl shadow-sm border border-emerald-100">
+                  <p className="text-xs text-gray-400">BMI Kamu</p>
+                  <p className="text-2xl font-bold text-emerald-600">19.5</p>
+                </div>
+                <div className="bg-white p-4 rounded-xl shadow-sm border border-emerald-100">
+                  <p className="text-xs text-gray-400">Air Minum</p>
+                  <p className="text-2xl font-bold text-blue-500">2L</p>
+                </div>
+              </div>
+              <div className="mt-4 bg-white p-6 rounded-xl shadow-sm border border-emerald-100">
+                 <div className="h-24 w-full bg-emerald-50 rounded-lg flex items-end justify-between p-2 gap-1">
+                   {[40, 70, 45, 90, 65, 80].map((h, i) => (
+                     <div key={i} className="bg-emerald-400 w-full rounded-t-sm" style={{ height: `${h}%` }}></div>
+                   ))}
+                 </div>
+                 <p className="text-xs text-center mt-2 text-gray-400">Statistik Mingguan</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20 px-8">
+      <section className="bg-gray-50 py-20 px-8 relative z-20">
         <div className="max-w-7xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Kenapa Memilih PURE?</h2>
           <p className="text-gray-500">Semua yang kamu butuhkan untuk gaya hidup sehat.</p>
         </div>
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <FeatureCard 
-            icon={<Calculator className="w-6 h-6 text-emerald-600" />}
+            icon={<Calculator className="w-6 h-6 " />}
             title="Smart Calculator"
             desc="Hitung BMI, BMR, dan kebutuhan air harian dengan sangat akurat."
           />
           <FeatureCard 
-            icon={<Activity className="w-6 h-6 text-emerald-600" />}
+            icon={<Activity className="w-6 h-6 " />}
             title="Digital Detox"
             desc="Pantau screen time kamu dan mulai batasi penggunaan gadget berlebih."
           />
           <FeatureCard 
-            icon={<ShieldCheck className="w-6 h-6 text-emerald-600" />}
+            icon={<ShieldCheck className="w-6 h-6 " />}
             title="Data Aman"
             desc="Data kesehatanmu tersimpan aman dan hanya bisa diakses oleh kamu."
           />
         </div>
       </section>
 
-      <footer className="bg-[#0a1715] text-gray-400 py-16 px-8 mt-20">
+      <footer className="bg-[#0a1715] text-gray-400 py-16 px-8 mt-auto relative z-20">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 text-2xl font-bold text-emerald-500 mb-6">
@@ -135,8 +150,8 @@ const Index = () => {
 };
 
 const FeatureCard = ({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) => (
-  <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
-    <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+  <div className="bg-white text-emerald-600 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition group">
+    <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
       {icon}
     </div>
     <h3 className="text-xl font-bold mb-3">{title}</h3>

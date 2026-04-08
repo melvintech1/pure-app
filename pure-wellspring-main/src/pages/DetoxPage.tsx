@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-// Kita hapus fungsi dari storage lokal
 import { AppLayout } from "@/components/AppLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { Smartphone, Plus } from "lucide-react";
+import { Smartphone, Plus, Clock } from "lucide-react";
 import { toast } from "sonner";
 
 export default function DetoxPage() {
@@ -109,7 +108,7 @@ export default function DetoxPage() {
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="space-y-1">
                   <Label className="text-xs">Tanggal</Label>
-                  <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} required disabled={isLoading} />
+                  <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} required disabled={isLoading} className="dark:[color-scheme:dark]" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-xs">Jam penggunaan</Label>
@@ -139,9 +138,16 @@ export default function DetoxPage() {
                     <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                     <XAxis dataKey="date" tick={{ fontSize: 11 }} />
                     <YAxis tick={{ fontSize: 11 }} />
-                    <Tooltip />
+                    <Tooltip contentStyle={{ 
+                      backgroundColor: "hsl(var(--card))", 
+                      borderColor: "hsl(var(--border))",
+                      borderRadius: "var(--radius)",
+                      color: "hsl(var(--card-foreground))"
+                      }}
+                      itemStyle={{color: "hsl(var(--card-foreground))" }}/>
+  
                     <Bar dataKey="jam" fill="hsl(44,90%,55%)" radius={[4, 4, 0, 0]} />
-                  </BarChart>
+                    </BarChart>
                 </ResponsiveContainer>
               ) : (
                 <div className="h-full flex items-center justify-center text-sm text-muted-foreground">
@@ -164,7 +170,11 @@ export default function DetoxPage() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Tanggal</TableHead>
-                    <TableHead>Screen Time</TableHead>
+                    <TableHead>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-amber-500" />
+                          <span>Screen Time</span>
+                    </div></TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

@@ -151,7 +151,13 @@ export default function Dashboard() {
                     <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                     <XAxis dataKey="date" tick={{ fontSize: 11 }} className="text-muted-foreground" />
                     <YAxis tick={{ fontSize: 11 }} domain={["auto", "auto"]} />
-                    <Tooltip />
+                    <Tooltip contentStyle={{ 
+                      backgroundColor: "hsl(var(--card))", 
+                      borderColor: "hsl(var(--border))",
+                      borderRadius: "var(--radius)",
+                      color: "hsl(var(--card-foreground))"
+                      }}
+                      itemStyle={{color: "hsl(var(--card-foreground))" }} />
                     <Line type="monotone" dataKey="bmi" stroke="hsl(168,60%,36%)" strokeWidth={2} dot={{ r: 3 }} />
                   </LineChart>
                 </ResponsiveContainer>
@@ -178,7 +184,13 @@ export default function Dashboard() {
                     <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                     <XAxis dataKey="date" tick={{ fontSize: 11 }} />
                     <YAxis tick={{ fontSize: 11 }} />
-                    <Tooltip />
+                    <Tooltip contentStyle={{ 
+                      backgroundColor: "hsl(var(--card))", 
+                      borderColor: "hsl(var(--border))",
+                      borderRadius: "var(--radius)",
+                      color: "hsl(var(--card-foreground))"
+                      }}
+                      itemStyle={{color: "hsl(var(--card-foreground))" }}/>
                     <Bar dataKey="jam" fill="hsl(44,90%,55%)" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
