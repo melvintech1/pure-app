@@ -1,10 +1,10 @@
-# PURE App 🚀
+# PURE App 
 
-PURE App adalah aplikasi full-stack web berbasis MERN/Node.js yang memungkinkan pengguna untuk mendaftar, masuk, dan mengelola artikel. Proyek ini adalah hasil dari Coding Camp dan menandai perilisan web app pertama saya!
+PURE adalah aplikasi berbasis web yang dirancang untuk membantu pengguna melacak aktivitas detoksifikasi digital dan memantau kesehatan mental serta fisik mereka. Aplikasi ini dibangun sebagai bagian dari Capstone Project Coding Camp 2026.
 
-🌍 **Live Demo:** [Kunjungi Aplikasi PURE](https://pure-app-jdgq.vercel.app)
+**Live Demo:** [Kunjungi Aplikasi PURE](https://pure-app-jdgq.vercel.app)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 * React (menggunakan Vite)
@@ -17,14 +17,14 @@ PURE App adalah aplikasi full-stack web berbasis MERN/Node.js yang memungkinkan 
 **Database:**
 * MongoDB (Mongoose)
 
-## ✨ Fitur Utama
+## Fitur Utama
 
 * **Otentikasi Pengguna:** Register dan Login dengan aman.
 * **Manajemen Artikel:** Pengguna dapat membuat, membaca, mengedit, dan menghapus artikel (CRUD).
 * **Responsive Design:** Antarmuka yang ramah pengguna.
 * **RESTful API:** Komunikasi yang lancar antara frontend dan backend.
 
-## 💻 Cara Menjalankan Secara Lokal (Local Development)
+## Cara Menjalankan Secara Lokal (Local Development)
 
 Jika Anda ingin menjalankan proyek ini di komputer Anda sendiri, ikuti langkah-langkah berikut:
 
@@ -33,9 +33,8 @@ Pastikan Anda sudah menginstal [Node.js](https://nodejs.org/) dan memiliki akun 
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/dewimasulul/pure-app.git](https://github.com/USERNAME_GITHUB_KAMU/pure-app.git)
+git clone [https://github.com/dewimasulul/pure-app.git]
 ```
-*(Ganti URL di atas dengan link repository GitHub kamu yang sebenarnya)*
 
 ### 2. Setup Backend (Server)
 Buka terminal baru dan arahkan ke folder backend:
@@ -65,8 +64,6 @@ Jika Anda menjalankan ini secara lokal, pastikan URL fetch di kodingan mengarah 
 Jalankan server frontend:
 ```bash
 npm run dev
-```
 
----
-Dibuat dengan ❤️ dan banyak kopi selama proses *debugging*.
-```
+
+Dibuat oleh Tim CC26-PS093 untuk Capstone Project Coding Camp 2026.
