@@ -5,17 +5,22 @@ import { Leaf, Activity, Calculator, ShieldCheck, ArrowRight, Instagram, Twitter
 const Index = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col">
-      <nav className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full">
-        <div className="flex items-center gap-2 text-2xl font-bold text-emerald-600">
-          <Leaf className="w-8 h-8" />
+      <nav className="flex justify-between items-center px-4 md:px-8 py-4 md:py-6 max-w-7xl mx-auto w-full relative z-20 bg-white">
+        
+        <div className="flex items-center gap-1 md:gap-2 text-xl md:text-2xl font-bold text-emerald-600">
+          <Leaf className="w-6 h-6 md:w-8 md:h-8" />
           <span>PURE</span>
         </div>
-        <div className="space-x-4">
-          <Link title="Masuk ke Akun" to="/login" className="px-6 py-2 text-gray-600 hover:text-emerald-600 font-medium transition">Masuk</Link>
-          <Link title="Daftar Baru" to="/register" className="px-6 py-2 bg-emerald-600 text-white rounded-full font-medium hover:bg-emerald-700 transition shadow-lg shadow-emerald-200">
-            Daftar Sekarang
+        
+        <div className="flex items-center gap-2 sm:gap-4">
+          <Link title="Masuk ke Akun" to="/login" className="text-sm md:text-base text-gray-600 hover:text-emerald-600 font-medium transition px-2 md:px-6">
+            Masuk
+          </Link>
+          <Link title="Daftar Baru" to="/register" className="px-4 py-2 md:px-6 md:py-2 text-sm md:text-base bg-emerald-600 text-white rounded-full font-medium hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 whitespace-nowrap">
+            Daftar<span className="hidden sm:inline"> Sekarang</span>
           </Link>
         </div>
+
       </nav>
 
       <section className="relative w-full overflow-hidden">
