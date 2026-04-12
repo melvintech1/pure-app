@@ -64,7 +64,6 @@ Jika Anda menjalankan ini secara lokal, pastikan URL fetch di kodingan mengarah 
 Jalankan server frontend:
 ```bash
 npm run dev
+```
 
-
----
 Dibuat oleh Tim CC26-PS093 untuk Capstone Project Coding Camp 2026.
