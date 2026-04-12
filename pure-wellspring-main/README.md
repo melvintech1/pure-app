@@ -70,6 +70,3 @@ Dibuat untuk memenuhi tugas Project Akhir.
 
 
 ---
-
-### Sedikit Tips untuk Presentasi Nanti:
-Kalau dosen nanya, *"Apa keunggulan aplikasi kamu?"* Kamu tinggal jawab dengan percaya diri: **"Aplikasi ini menggabungkan pelacakan fisik (BMI & Air) dengan pelacakan mental (Digital Detox) dalam satu UI/UX yang modern, bersih, dan sangat responsif, dibangun dengan MERN Stack."**
