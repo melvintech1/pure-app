@@ -1,4 +1,3 @@
-```markdown
 # PURE App 🚀
 
 PURE App adalah aplikasi full-stack web berbasis MERN/Node.js yang memungkinkan pengguna untuk mendaftar, masuk, dan mengelola artikel. Proyek ini adalah hasil dari Coding Camp dan menandai perilisan web app pertama saya!
