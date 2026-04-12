@@ -66,4 +66,5 @@ Jalankan server frontend:
 npm run dev
 
 
+---
 Dibuat oleh Tim CC26-PS093 untuk Capstone Project Coding Camp 2026.
