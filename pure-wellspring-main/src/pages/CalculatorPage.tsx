@@ -50,7 +50,7 @@ function BMICalculator({ userId }: { userId: string }) {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("pure_token");
-      const response = await fetch("http://localhost:5000/api/bmi", {
+      const response = await fetch("https://pure-app-production.up.railway.app/api/bmi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ function BMRCalculator({ userId }: { userId: string }) {
     // Mengirim ke API BMR
     try {
       const token = localStorage.getItem("pure_token");
-      const response = await fetch("http://localhost:5000/api/bmr", {
+      const response = await fetch("https://pure-app-production.up.railway.app/api/bmr", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -214,7 +214,7 @@ function WaterCalculator({ userId }: { userId: string }) {
     // Mengirim ke API Water
     try {
       const token = localStorage.getItem("pure_token");
-      const response = await fetch("http://localhost:5000/api/water", {
+      const response = await fetch("https://pure-app-production.up.railway.app/api/water", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

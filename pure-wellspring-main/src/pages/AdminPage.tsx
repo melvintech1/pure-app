@@ -30,7 +30,7 @@ export default function AdminPage() {
     const fetchArticles = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch("http://localhost:5000/api/articles");
+        const response = await fetch("https://pure-app-production.up.railway.app/");
         const data = await response.json();
         if (data.success) {
           setArticles(data.data);
@@ -77,13 +77,13 @@ export default function AdminPage() {
 
       // Jika ada editId, berarti Update (PUT), kalau tidak berarti Tambah Baru (POST)
       if (editId) {
-        response = await fetch(`http://localhost:5000/api/articles/${editId}`, {
+        response = await fetch(`https://pure-app-production.up.railway.app/api/articles/${editId}`, {
           method: "PUT",
           headers,
           body: JSON.stringify({ title, content }),
         });
       } else {
-        response = await fetch("http://localhost:5000/api/articles", {
+        response = await fetch("https://pure-app-production.up.railway.app/api/articles", {
           method: "POST",
           headers,
           body: JSON.stringify({ title, content, author: user?.name || "Admin" }),
@@ -111,7 +111,7 @@ export default function AdminPage() {
 
     try {
       const token = localStorage.getItem("pure_token");
-      const response = await fetch(`http://localhost:5000/api/articles/${id}`, {
+      const response = await fetch(`https://pure-app-production.up.railway.app/api/articles/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` },
       });

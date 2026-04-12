@@ -16,7 +16,7 @@ export default function ArticlesPage() {
     const fetchArticles = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/api/articles");
+        const response = await fetch("https://pure-app-production.up.railway.app/api/articles");
         const data = await response.json();
         if (data.success) {
           setArticles(data.data);

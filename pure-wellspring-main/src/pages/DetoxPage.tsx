@@ -29,7 +29,7 @@ export default function DetoxPage() {
       setIsFetching(true);
       try {
         const token = localStorage.getItem("pure_token");
-        const response = await fetch("http://localhost:5000/api/detox", {
+        const response = await fetch("https://pure-app-production.up.railway.app/api/detox", {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await response.json();
@@ -63,7 +63,7 @@ export default function DetoxPage() {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("pure_token");
-      const response = await fetch("http://localhost:5000/api/detox", {
+      const response = await fetch("https://pure-app-production.up.railway.app/api/detox", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

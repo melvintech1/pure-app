@@ -27,10 +27,10 @@ export default function Dashboard() {
 
         // Mengambil 4 data sekaligus dari server
         const [bmiRes, bmrRes, waterRes, detoxRes] = await Promise.all([
-          fetch("http://localhost:5000/api/bmi", { headers }),
-          fetch("http://localhost:5000/api/bmr", { headers }),
-          fetch("http://localhost:5000/api/water", { headers }),
-          fetch("http://localhost:5000/api/detox", { headers }) // Jalur Detox
+          fetch("https://pure-app-production.up.railway.app/api/bmi", { headers }),
+          fetch("https://pure-app-production.up.railway.app/api/bmr", { headers }),
+          fetch("https://pure-app-production.up.railway.app/api/water", { headers }),
+          fetch("https://pure-app-production.up.railway.app/api/detox", { headers }) // Jalur Detox
         ]);
 
         const [bmiData, bmrData, waterData, detoxData] = await Promise.all([
