@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// Hapus impor storage lokal
 import { AppLayout } from "@/components/AppLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,6 @@ export default function ArticlesPage() {
   const [articles, setArticles] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Mengambil artikel dari database saat halaman dibuka
   useEffect(() => {
     const fetchArticles = async () => {
       setIsLoading(true);
@@ -31,10 +29,8 @@ export default function ArticlesPage() {
     fetchArticles();
   }, []);
 
-  // Mencari artikel yang sedang diklik (Ingat, pakai _id untuk MongoDB)
   const selected = articles.find((a) => a._id === selectedId);
 
-  // Jika ada artikel yang dipilih, tampilkan halaman baca (detail)
   if (selected) {
     return (
       <AppLayout>
@@ -56,7 +52,6 @@ export default function ArticlesPage() {
     );
   }
 
-  // Tampilan daftar artikel utama
   return (
     <AppLayout>
       <div className="space-y-6 max-w-4xl mx-auto">

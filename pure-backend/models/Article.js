@@ -5,7 +5,7 @@ const articleSchema = new mongoose.Schema({
   content: { type: String, required: true },
   author: { type: String, required: true }
 }, { 
-  timestamps: true // Ini akan otomatis membuat 'createdAt' dan 'updatedAt'
+  timestamps: true 
 });
 
 module.exports = mongoose.model('Article', articleSchema);

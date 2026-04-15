@@ -55,7 +55,6 @@ function setItems<T>(key: string, items: T[]) {
   localStorage.setItem(key, JSON.stringify(items));
 }
 
-// BMI
 export function getBMIRecords(userId: string): BMIRecord[] {
   return getItems<BMIRecord>("pure_bmi").filter((r) => r.userId === userId);
 }
@@ -65,7 +64,6 @@ export function addBMIRecord(record: BMIRecord) {
   setItems("pure_bmi", all);
 }
 
-// BMR
 export function getBMRRecords(userId: string): BMRRecord[] {
   return getItems<BMRRecord>("pure_bmr").filter((r) => r.userId === userId);
 }
@@ -75,7 +73,6 @@ export function addBMRRecord(record: BMRRecord) {
   setItems("pure_bmr", all);
 }
 
-// Water
 export function getWaterRecords(userId: string): WaterRecord[] {
   return getItems<WaterRecord>("pure_water").filter((r) => r.userId === userId);
 }
@@ -85,7 +82,6 @@ export function addWaterRecord(record: WaterRecord) {
   setItems("pure_water", all);
 }
 
-// Detox
 export function getDetoxRecords(userId: string): DetoxRecord[] {
   return getItems<DetoxRecord>("pure_detox").filter((r) => r.userId === userId);
 }
@@ -95,7 +91,6 @@ export function addDetoxRecord(record: DetoxRecord) {
   setItems("pure_detox", all);
 }
 
-// Articles
 export function getArticles(): Article[] {
   const items = getItems<Article>("pure_articles");
   if (items.length === 0) {
@@ -151,7 +146,6 @@ export function deleteArticle(id: string) {
   setItems("pure_articles", all);
 }
 
-// BMI category helper
 export function getBMICategory(bmi: number): { label: string; color: string } {
   if (bmi < 18.5) return { label: "Kurus", color: "text-blue-500" };
   if (bmi < 25) return { label: "Normal", color: "text-primary" };

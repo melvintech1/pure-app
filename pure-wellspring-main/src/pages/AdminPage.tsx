@@ -14,7 +14,6 @@ import { useAuth } from "@/contexts/AuthContext";
 export default function AdminPage() {
   const { user } = useAuth();
   
-  // State untuk menyimpan artikel dari database
   const [articles, setArticles] = useState<any[]>([]);
   const [refresh, setRefresh] = useState(0);
   const [isFetching, setIsFetching] = useState(true);
@@ -25,7 +24,6 @@ export default function AdminPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  // Mengambil data artikel dari database
   useEffect(() => {
     const fetchArticles = async () => {
       setIsFetching(true);
@@ -53,7 +51,7 @@ export default function AdminPage() {
   };
 
   const openEdit = (a: any) => {
-    setEditId(a._id); // Di MongoDB menggunakan _id
+    setEditId(a._id); 
     setTitle(a.title);
     setContent(a.content);
     setDialogOpen(true);
@@ -75,7 +73,6 @@ export default function AdminPage() {
 
       let response;
 
-      // Jika ada editId, berarti Update (PUT), kalau tidak berarti Tambah Baru (POST)
       if (editId) {
         response = await fetch(`https://pure-app-production.up.railway.app/api/articles/${editId}`, {
           method: "PUT",

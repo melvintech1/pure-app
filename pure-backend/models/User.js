@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Membuat kerangka data untuk User
 const userSchema = new mongoose.Schema({
   name: { 
     type: String, 
@@ -9,7 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { 
     type: String, 
     required: true, 
-    unique: true // Email tidak boleh ada yang sama
+    unique: true 
   },
   password: { 
     type: String, 
@@ -17,11 +16,10 @@ const userSchema = new mongoose.Schema({
   },
   role: { 
     type: String, 
-    default: 'user' // Otomatis menjadi 'user' biasa saat mendaftar
+    default: 'user' 
   }
 }, { 
-  timestamps: true // Otomatis mencatat kapan akun dibuat (createdAt)
+  timestamps: true 
 });
 
-// Mengekspor model agar bisa dipakai di file lain
 module.exports = mongoose.model('User', userSchema);

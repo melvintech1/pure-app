@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-// Membuat kerangka data untuk hasil Kalkulator BMI
 const bmiSchema = new mongoose.Schema({
   userId: { 
     type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User', // Menyambungkan data BMI ini dengan akun User yang menghitungnya
+    ref: 'User', 
     required: true 
   },
   weight: { 
@@ -21,11 +20,11 @@ const bmiSchema = new mongoose.Schema({
   },
   category: { 
     type: String, 
-    required: true // Menyimpan kategori: Kurus, Normal, dll
+    required: true 
   },
   date: { 
     type: Date, 
-    default: Date.now // Otomatis mengisi tanggal hari ini
+    default: Date.now 
   }
 });
 

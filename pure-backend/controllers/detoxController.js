@@ -1,6 +1,5 @@
 const DetoxRecord = require('../models/DetoxRecord');
 
-// Menyimpan data jam screen time baru
 exports.addDetoxRecord = async (req, res) => {
   try {
     const { hours } = req.body;
@@ -11,7 +10,6 @@ exports.addDetoxRecord = async (req, res) => {
   }
 };
 
-// Mengambil riwayat screen time user
 exports.getDetoxRecords = async (req, res) => {
   try {
     const records = await DetoxRecord.find({ userId: req.user._id }).sort({ date: -1 });

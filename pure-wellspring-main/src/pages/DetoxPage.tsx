@@ -16,14 +16,12 @@ export default function DetoxPage() {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [refresh, setRefresh] = useState(0);
   
-  // State baru untuk menyimpan data dari database dan status loading
   const [records, setRecords] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
 
   if (!user) return null;
 
-  // Mengambil data dari Backend saat halaman dibuka atau saat 'refresh' bertambah
   useEffect(() => {
     const fetchRecords = async () => {
       setIsFetching(true);
@@ -35,7 +33,6 @@ export default function DetoxPage() {
         const data = await response.json();
         
         if (data.success) {
-          // Mengurutkan data dari yang paling baru ke lama
           const sortedData = data.data.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
           setRecords(sortedData);
         }
@@ -49,7 +46,6 @@ export default function DetoxPage() {
     fetchRecords();
   }, [user, refresh]);
 
-  // Menyiapkan data untuk Grafik (Chart)
   const chartData = [...records].reverse().slice(-14).map((r) => ({
     date: new Date(r.date).toLocaleDateString("id-ID", { day: "2-digit", month: "short" }),
     jam: r.hours,
@@ -69,7 +65,6 @@ export default function DetoxPage() {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`
         },
-        // Mengirim jam ke backend
         body: JSON.stringify({ hours: h, date })
       });
 
@@ -77,7 +72,7 @@ export default function DetoxPage() {
 
       if (response.ok && data.success) {
         setHours("");
-        setRefresh((p) => p + 1); // Memancing useEffect untuk mengambil data terbaru
+        setRefresh((p) => p + 1); 
         toast.success("Screen time tercatat di Database!");
       } else {
         toast.error(data.message || "Gagal mencatat data");

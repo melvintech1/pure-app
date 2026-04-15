@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { getBMICategory } from "@/lib/storage"; // getDetoxRecords sudah dihapus
+import { getBMICategory } from "@/lib/storage"; 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Activity, Flame, Droplets, Smartphone } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
@@ -10,11 +10,10 @@ import { toast } from "sonner";
 export default function Dashboard() {
   const { user } = useAuth();
   
-  // State untuk menyimpan ke-4 data dari Database
   const [bmiRecords, setBmiRecords] = useState<any[]>([]);
   const [bmrRecords, setBmrRecords] = useState<any[]>([]);
   const [waterRecords, setWaterRecords] = useState<any[]>([]);
-  const [detoxRecords, setDetoxRecords] = useState<any[]>([]); // Tambahan state detox
+  const [detoxRecords, setDetoxRecords] = useState<any[]>([]); 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,12 +24,11 @@ export default function Dashboard() {
         const token = localStorage.getItem("pure_token");
         const headers = { Authorization: `Bearer ${token}` };
 
-        // Mengambil 4 data sekaligus dari server
         const [bmiRes, bmrRes, waterRes, detoxRes] = await Promise.all([
           fetch("https://pure-app-production.up.railway.app/api/bmi", { headers }),
           fetch("https://pure-app-production.up.railway.app/api/bmr", { headers }),
           fetch("https://pure-app-production.up.railway.app/api/water", { headers }),
-          fetch("https://pure-app-production.up.railway.app/api/detox", { headers }) // Jalur Detox
+          fetch("https://pure-app-production.up.railway.app/api/detox", { headers }) 
         ]);
 
         const [bmiData, bmrData, waterData, detoxData] = await Promise.all([
@@ -40,11 +38,10 @@ export default function Dashboard() {
           detoxRes.json()
         ]);
 
-        // Menyimpan data ke state masing-masing
         if (bmiData.success) setBmiRecords(bmiData.data);
         if (bmrData.success) setBmrRecords(bmrData.data);
         if (waterData.success) setWaterRecords(waterData.data);
-        if (detoxData.success) setDetoxRecords(detoxData.data); // Menyimpan detox
+        if (detoxData.success) setDetoxRecords(detoxData.data); 
 
       } catch (error) {
         toast.error("Gagal mengambil data dari server");
@@ -58,17 +55,14 @@ export default function Dashboard() {
 
   if (!user) return null;
 
-  // Mencari data Detox khusus hari ini
   const todayString = new Date().toISOString().split("T")[0];
   const todayDetox = detoxRecords.filter((r) => r.date.startsWith(todayString));
   const todayScreenTime = todayDetox.reduce((sum, r) => sum + r.hours, 0);
 
-  // Mengambil data terbaru (Index 0)
   const lastBMI = bmiRecords[0];
   const lastBMR = bmrRecords[0];
   const lastWater = waterRecords[0];
 
-  // Membalikkan urutan untuk Chart (tanggal lama ke baru)
   const bmiChartData = [...bmiRecords].slice(0, 10).reverse().map((r) => ({
     date: new Date(r.date).toLocaleDateString("id-ID", { day: "2-digit", month: "short" }),
     bmi: Number(r.bmi.toFixed(1)),

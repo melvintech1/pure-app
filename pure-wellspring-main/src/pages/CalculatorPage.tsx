@@ -112,7 +112,6 @@ function BMRCalculator({ userId }: { userId: string }) {
   const [result, setResult] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Menambahkan async
   const calc = async (e: React.FormEvent) => {
     e.preventDefault();
     const a = parseInt(age), w = parseFloat(weight), h = parseFloat(height);
@@ -125,7 +124,6 @@ function BMRCalculator({ userId }: { userId: string }) {
     setResult(bmr);
     setIsLoading(true);
 
-    // Mengirim ke API BMR
     try {
       const token = localStorage.getItem("pure_token");
       const response = await fetch("https://pure-app-production.up.railway.app/api/bmr", {
@@ -201,7 +199,6 @@ function WaterCalculator({ userId }: { userId: string }) {
   const [result, setResult] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Menambahkan async
   const calc = async (e: React.FormEvent) => {
     e.preventDefault();
     const w = parseFloat(weight);
@@ -211,7 +208,6 @@ function WaterCalculator({ userId }: { userId: string }) {
     setResult(ml);
     setIsLoading(true);
 
-    // Mengirim ke API Water
     try {
       const token = localStorage.getItem("pure_token");
       const response = await fetch("https://pure-app-production.up.railway.app/api/water", {
